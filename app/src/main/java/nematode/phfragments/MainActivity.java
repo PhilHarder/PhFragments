@@ -28,12 +28,12 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.MyF
     }
 
    @Override
-    public void sendData(String s, String s2) {
-       switch (s2){
-           case "myFL1}":
+    public void sendData(String s, int myFLID) {
+       switch (myFLID){
+           case R.id.myFL1:
                bf2.useData(s);
                break;
-           case "myFL2}":
+           case R.id.myFL2:
                bf1.useData(s);
                break;
        }

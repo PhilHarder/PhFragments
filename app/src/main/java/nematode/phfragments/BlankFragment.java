@@ -2,7 +2,6 @@ package nematode.phfragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,14 +30,7 @@ public class BlankFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MyFragInterface mfiActivity = (MyFragInterface) getActivity();
-                //
-                // Through trial and error I was able to identify a unique identifier
-                // at the end of "String.valueOf(container)"
-                // The identifier is the ID of the FrameLayout that the fragment class
-                // was instantiated into.
-                //
-                Log.d("Container ", String.valueOf(container));
-                mfiActivity.sendData(eT.getText().toString(), String.valueOf(container).split("/")[1]);
+                mfiActivity.sendData(eT.getText().toString(), container.getId());
             }
         });
         return vi;
@@ -49,6 +41,6 @@ public class BlankFragment extends Fragment {
     }
 
     public interface MyFragInterface {
-        void sendData(String s, String s2);
+        void sendData(String s, int MyFLID);
     }
 }
